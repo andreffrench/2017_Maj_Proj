@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>AFMCS | Check Levels</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+       <!--Bootstrap Theme Specific-->
+      <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="http://getbootstrap.com/examples/jumbotron-narrow.css" rel="stylesheet">
+
+      <!--Login Form Specific-->
+      <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+      <link rel="stylesheet" href="css/style.css">
+
+      <style>
+          body {
+            text-align: center;
+            font-size: 15px;
+            color: #343d44;
+            font-family: "segoe-ui", "open-sans", tahoma, arial;
+            margin: 0;
+            padding-bottom:50px;
+        }
+        #foota{
+            position: fixed;
+            bottom:0;
+            height:50px;
+            width: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            background: #878787;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+          #g1 {
+            width:400px; height:320px;
+            display: inline-block;
+            margin: 1em;
+          }
+
+
+        </style>
+
+
+
+  </head>
+
+  <body>
+  <div class="container">
+      <div class="container">
+       <!--MAIN MENU START-->
+            <div class="header">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation"><a href="home.php">Home</a>
+                        </li>
+                        <li role="presentation"><a href="checkpo.php">Check PO</a>
+                        </li>
+                        <li role="presentation" class="active"><a href="#">Check Levels</a>
+                        </li>
+                        <li role="presentation"><a href="deliver.php">Deliver</a>
+                        </li>
+                        <li role="presentation"><a href="login.php">Sign Out</a>
+                        </li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted" style="margin-left:30px;">Automated Fuel Monitor & Control System</h3>
+            </div>
+            <!--MAIN MENU END-->
+
+        <div class="jumbotron">
+            <h4 align="right">Driver Logged In: DRV001 </h4>
+        </div>
+
+
+        <div id="g1"></div>
+
+        <script src="../static/js/raphael-2.1.4.min.js"></script>
+        <script src="../static/js/justgage.js"></script>
+        <script>
+          var g1, g2, g3, g4;
+          var data = '{{valz}}';
+
+          window.onload = function(){
+            var g1 = new JustGage({
+              id: "g1",
+              value: data,
+              min: 0,
+              max: 100,
+              title: "Check Levels",
+              label: "litre",
+              pointer: true
+            });
+
+            setInterval(function() {
+              g1.refresh(valz);
+            }, 2500);
+          };
+        </script>
+      </div>
+    </div>
+
+  </body>
+<!--FOOTER START-->
+    <footer class="footer" id="foota">
+        <p>&copy; AFMCS 2017</p>
+    </footer>
+    <!--FOOTER END-->
+
+</html>

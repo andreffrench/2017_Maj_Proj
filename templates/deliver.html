@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <title>AMFCS | Deliver</title>
+      
+      <!--Bootstrap Theme Specific-->
+      <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="http://getbootstrap.com/examples/jumbotron-narrow.css" rel="stylesheet">
+      
+      <!--Login Form Specific-->
+      <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+      <link rel="stylesheet" href="../static/css/style.css">
+
+      <style type="text/css">
+        body{
+            font-size: 15px;
+            color: #343d44;
+            font-family: "segoe-ui", "open-sans", tahoma, arial;
+            margin: 0;
+            padding-bottom:50px;
+        }
+        #foota{
+            position: fixed;
+            bottom:0;
+            height:50px;
+            width: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            background: #878787;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+        .btnspcer{
+           border-collapse: separate;
+           border-spacing: 0 5px;
+        }
+        .btnspcer th{
+            text-align:center;
+        }
+        .btnspcer td{
+            border-width: 3px 0;
+            padding: 5px 15px;
+        }
+        .btnspcer td:first-child{
+            border-left-width: 3px;
+            border-radius: 5px 0 0 5px;
+        }
+        .btnspcer td:last-child{
+            border-right-width: 3px;
+            border-radius: 0 5px 5px 0;
+        }
+        #myProgress{
+            width:100%;
+            background-color: grey;
+        }
+        #myBar{
+            width:1%;
+            height:30px;
+            background-color: green;
+        }
+        </style>
+        
+</head>
+
+<body>
+    <div class="container">
+       <!--MAIN MENU START-->
+            <div class="header">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <!--<li role="presentation"><a href="home.html">Home</a>
+                        </li>
+                        <li role="presentation"><a href="checkpo.php">Check PO</a>
+                        </li>
+                        <li role="presentation"><a href="checklevels.html">Check Levels</a>
+                        </li>-->
+                        <li role="presentation"class="active"><a href="#">Deliver</a>
+                        </li><!--
+                        <li role="presentation"><a href="login.html">Sign Out</a>
+                        </li> -->
+                    </ul>
+                </nav>
+                <h3 class="text-muted" style="margin-left:30px;">Automated Fuel Monitor & Control System</h3>
+            </div>
+            <!--MAIN MENU END-->
+
+        <div class="jumbotron">
+            <h4 align="right">Driver Logged In: DRV001 </h4>
+            <!--<p class="lead"></p>-->
+        </div>
+
+          <!--PROGRESS BAR-->
+        <div id="myProgress">
+            <div id="myBar">
+            </div>
+        </div>
+        <br>
+        <div>
+            <table class="btnspcer" align="center">
+                <tr>
+                    <td>
+                    <button onclick="move()" class="btn btn-lg btn-success"/>Start Delivery</button>
+                    <script type="text/javascript">
+            function move() 
+            {
+                var elem = document.getElementById("myBar");
+                var width = 10;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                    } else {
+                        width++;
+                        elem.style.width = width + '%';
+                    }
+                }
+            }
+        </script>
+                    </td>
+                    <td><a class="btn btn-lg btn-warning" href="#" role="button" disabled>Pause Delivery</a></td>
+                    <td><a class="btn btn-lg btn-danger" href="home.php" role="button">Exit Delivery</a></td>
+                </tr>
+            </table>
+        </div>
+
+      
+
+</div>
+     <!--FOOTER START-->
+    <footer class="footer" id="foota">
+        <p>&copy; AMFCS 2017<p>
+    </footer>
+    <!--FOOTER END-->
+    
+</body>
+
+</html>
